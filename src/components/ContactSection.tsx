@@ -38,16 +38,32 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description:
-          "Thanks for reaching out. We'll get back to you within 24 hours.",
-      });
+    // Open WhatsApp with prefilled message
+    try {
+      const whatsappNumber = "919033001841"; // E.164 without '+'
+      const text = `Hello CtrlAltBuild,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        text
+      )}`;
+
+      // Prefer opening in a new tab; fall back to same tab if blocked
+      const newWin = window.open(whatsappUrl, "_blank");
+      if (!newWin) {
+        window.location.href = whatsappUrl;
+      }
+
+      // Optional: clear the form after initiating WhatsApp
       setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Failed to open WhatsApp:", err);
+      toast({
+        title: "Couldn't open WhatsApp",
+        description: "Please try again or contact us via email or phone.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactInfo = [

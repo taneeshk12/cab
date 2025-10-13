@@ -137,7 +137,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Social Links */}
-                <div>
+                {/* <div>
                   <h4 className="font-semibold mb-4 text-foreground">
                     Follow Us
                   </h4>
@@ -155,7 +155,7 @@ const ContactSection = () => {
                       );
                     })}
                   </div>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           </div>

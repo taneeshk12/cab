@@ -93,209 +93,144 @@ const ContactSection = () => {
       href: "https://www.linkedin.com/in/ctrlaltbuild-technologies-508119383/",
       label: "LinkedIn",
     },
-    {
-      icon: Github,
-      href: "https://github.com/CtrlAltBuild-Technologies",
-      label: "GitHub",
-    },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    // {
+    //   icon: Github,
+    //   href: "https://github.com/CtrlAltBuild-Technologies",
+    //   label: "GitHub",
+    // },
+    // { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
   return (
-    <section id="contact" className="py-20 lg:py-32 gradient-bg-subtle">
+    <section id="contact" className="py-24 lg:py-40 relative">
       <div className="container mx-auto px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">Let's Build Something</span>
-            <br />
-            <span className="gradient-text">Amazing Together</span>
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your ideas into reality? Get in touch with us and
-            let's discuss how we can help your business thrive.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Contact Info */}
-          <div className="animate-slide-up">
-            <Card className="border-0 shadow-medium hover-lift bg-black/40 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-black">
-                  Get in Touch
-                </h3>
+          <div className="animate-fade-in order-2 lg:order-1">
+            <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tight">
+              Let's Start a <br />
+              <span className="gradient-text">Conversation</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+              Ready to take your project to the next level? Our team of experts is
+              standing by to help you solve your toughest technical challenges.
+            </p>
 
-                {/* Contact Details */}
-                <div className="space-y-6 mb-8">
-                  {contactInfo.map((item) => {
-                    const IconComponent = item.icon;
-                    return (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        className="flex items-center space-x-4 p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-smooth group hover-lift"
-                      >
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full gradient-bg-primary/10 group-hover:gradient-bg-primary group-hover:shadow-glow transition-smooth">
-                          <IconComponent className="w-6 h-6 text-white/70 group-hover:text-white transition-smooth" />
-                        </div>
-                        <div>
-                          <div className="text-sm text-white/50 font-bold">
-                            {item.label}
-                          </div>
-                          <div className="font-medium text-foreground group-hover:text-white transition-smooth">
-                            {item.value}
-                          </div>
-                        </div>
-                      </a>
-                    );
-                  })}
-                </div>
-
-                {/* Social Links */}
-                {/* <div>
-                  <h4 className="font-semibold mb-4 text-foreground">
-                    Follow Us
-                  </h4>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((social) => {
-                      const IconComponent = social.icon;
-                      return (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          className="flex items-center justify-center w-12 h-12 rounded-full bg-muted hover:gradient-bg-primary group transition-smooth hover-scale shadow-soft hover:shadow-glow"
-                        >
-                          <IconComponent className="w-5 h-5 text-muted-foreground group-hover:text-white transition-smooth" />
-                        </a>
-                      );
-                    })}
+            <div className="space-y-8 mb-12">
+              {contactInfo.map((info) => (
+                <a
+                  key={info.label}
+                  href={info.href}
+                  className="flex items-center group p-6 glass-card rounded-3xl hover:bg-primary/5 transition-all duration-300"
+                >
+                  <div className="w-16 h-16 rounded-2xl gradient-bg-primary flex items-center justify-center mr-6 group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-glow">
+                    <info.icon className="w-8 h-8 text-white" />
                   </div>
-                </div> */}
-              </CardContent>
-            </Card>
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary mb-1">
+                      {info.label}
+                    </p>
+                    <p className="text-xl font-semibold text-foreground">
+                      {info.value}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="flex space-x-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 flex items-center justify-center rounded-2xl glass-card text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 group"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-6 h-6 group-hover:scale-125 transition-transform" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Contact Form */}
-          <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <Card className="border-0 shadow-medium hover-lift bg-black/40 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-black">
-                  Send us a Message
-                </h3>
+          <div className="animate-slide-up order-1 lg:order-2">
+            <div className="glass-card p-8 md:p-12 rounded-[3rem] relative overflow-hidden shadow-large border-primary/20 bg-white/90 dark:bg-card/40">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label
-                      htmlFor="name"
-                      className="text-foreground font-medium"
-                    >
-                      Your Name
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-2 border-border focus:border-primary focus:ring-primary/20"
-                      placeholder="John Doe"
-                    />
-                  </div>
+              <h3 className="text-2xl md:text-3xl font-black mb-8 text-center text-slate-900 dark:text-white">
+                Project Inquiry
+              </h3>
 
-                  <div>
-                    <Label
-                      htmlFor="email"
-                      className="text-foreground font-medium"
-                    >
-                      Email Address
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-2 border-border focus:border-primary focus:ring-primary/20"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <Label
-                      htmlFor="message"
-                      className="text-foreground font-medium"
-                    >
-                      Your Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="mt-2 border-border focus:border-primary focus:ring-primary/20"
-                      placeholder="Tell us about your project or how we can help..."
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full gradient-bg-primary hover-glow hover-scale py-3 text-lg font-semibold"
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="name"
+                    className="text-sm font-black uppercase tracking-wider ml-1 text-slate-700 dark:text-foreground/70"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 w-5 h-5" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    Your Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="h-14 px-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-slate-200 dark:border-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm text-slate-900 dark:text-white placeholder:text-slate-400"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="email"
+                    className="text-sm font-black uppercase tracking-wider ml-1 text-slate-700 dark:text-foreground/70"
+                  >
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="h-14 px-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-slate-200 dark:border-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm text-slate-900 dark:text-white placeholder:text-slate-400"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="message"
+                    className="text-sm font-black uppercase tracking-wider ml-1 text-slate-700 dark:text-foreground/70"
+                  >
+                    How can we help?
+                  </Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your project or vision..."
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="min-h-[150px] px-6 py-4 rounded-2xl bg-white/50 dark:bg-muted/30 border border-slate-200 dark:border-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm text-slate-900 dark:text-white placeholder:text-slate-400 resize-none"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full h-16 gradient-bg-primary hover-glow text-white font-bold text-xl rounded-2xl transition-bounce group"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Opening WhatsApp..." : "Send Message"}
+                  <Send className="ml-2 w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Button>
+                {/* <p className="text-center text-xs text-muted-foreground mt-4">
+                  Powered by 128-bit Encryption & Seamless WhatsApp Integration
+                </p> */}
+              </form>
+            </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <footer className="mt-20 pt-12 border-t border-border text-center animate-fade-in">
-          <div className="flex flex-col md:flex-row justify-between mr-20">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-xl font-bold gradient-text mb-2">
-                CtrlAltBuild
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                <strong>Ctrl</strong>ling Outcomes <strong>Alt</strong>ernating
-                Innovations <strong>Build</strong>ing Dreams
-              </p>
-  
-              <div className="text-sm text-muted-foreground mt-6">
-                © 2025 CtrlAltBuild. All rights reserved.
-              </div>
-            </div>
-
-            <div className="text-left flex text-sm text-muted-foreground gap-10">
-                <div>
-                  <h2 className="text-sm text-muted-foreground">Work with us?</h2>
-                  <a href="#" className="underline text-sm text-muted-foreground">Internships</a>
-                </div>
-                <div>
-                  <h2>Our Projects</h2>
-                  <a href="https://www.ieltsprepai.tech/" className="underline flex gap-1 items-center">
-                    IELTS Prep AI
-                    <ArrowUpRightIcon className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-          </div>
-        </footer>
       </div>
     </section>
   );

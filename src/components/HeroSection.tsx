@@ -8,79 +8,73 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95"></div>
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden py-20 px-4">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        <div className="absolute inset-0 bg-white/70 dark:bg-background/90 transition-colors duration-500" />
+        {/* Animated Mesh Gradients - Adjusted for light mode visibility */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 dark:bg-primary/20 blur-[120px] rounded-full animate-float" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 dark:bg-secondary/20 blur-[120px] rounded-full animate-float" style={{animationDelay: '3s'}} />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 rounded-full gradient-bg-primary opacity-20 animate-float"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 rounded-full gradient-bg-secondary opacity-30 animate-float" style={{animationDelay: '2s'}}></div>
-      <div className="absolute bottom-40 left-20 w-12 h-12 rounded-full gradient-bg-primary opacity-25 animate-float" style={{animationDelay: '4s'}}></div>
-
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative z-10 container mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
+          {/* Badge */}
+          {/* <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 mb-8 animate-fade-in glass-card">
+            <Sparkles className="w-4 h-4 text-primary dark:text-primary-light" />
+            <span className="text-xs md:text-sm font-bold text-primary dark:text-primary-light uppercase tracking-wider"></span>
+          </div> */}
+
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="gradient-text">CtrlAltBuild</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight animate-fade-in text-slate-900 dark:text-white">
+            <span className="gradient-text drop-shadow-sm">CtrlAltBuild</span>
             <br />
-            <span className="text-foreground">Where Innovation</span>
-            <br />
-            <span className="text-foreground">Meets Excellence</span>
+            Innovate.{" "}
+            <span className="text-primary/80 dark:text-muted-foreground/60">Scale.</span>{" "}
+            Success.
           </h1>
 
           {/* Subheading */}
-          <p className="text-base md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            We craft exceptional digital experiences through tech consultancy, 
-            custom software development, and innovative SaaS solutions. 
-            Your vision, our expertise, unlimited possibilities.
+          <p className="text-lg md:text-2xl text-slate-700 dark:text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in font-medium">
+            We turn complex ideas into <span className="text-primary dark:text-white font-extrabold border-b-2 border-primary/20">seamless digital reality</span>. 
+            From expert consultancy to custom software, we build the future of tech.
           </p>
 
-          {/* Service Tags */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-              Tech Consultancy
-            </span>
-            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-              Custom Software
-            </span>
-            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-              SaaS Products
-            </span>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-fade-in">
             <Button 
               size="lg"
               onClick={scrollToContact}
-              className="hover-glow hover-scale px-8 py-3 text-lg font-semibold text-white"
+              className="gradient-bg-primary hover-glow rounded-2xl h-16 px-10 text-xl font-bold transition-bounce group w-full sm:w-auto"
             >
-              Let's Build Together
-              <ArrowRight className="ml-2 w-5 h-5" />
+              Start Your Journey
+              <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1" />
             </Button>
             <Button 
               variant="outline"
               size="lg"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: "smooth" })}
-              className="border-primary/30 text-primary hover:bg-primary/10 hover-lift px-8 py-3 text-lg"
+              className="glass-card hover:bg-primary/5 h-16 px-10 text-xl font-semibold rounded-2xl w-full sm:w-auto"
             >
-              Explore Services
+              Our Solutions
             </Button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 pt-8 border-t border-border/10 animate-fade-in flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all">
+             {/* Icons would go here */}
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-        </div>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-30">
+        <div className="h-12 w-0.5 bg-gradient-to-b from-primary to-transparent animate-pulse" />
       </div>
     </section>
   );
